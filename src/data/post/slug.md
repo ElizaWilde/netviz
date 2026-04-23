@@ -3,8 +3,8 @@ title: 'first'
 publishDate: 2026-01-04
 draft: false
 excerpt: '...'
-category: 'computer network'
-tags: ['physical layer']
+category: ''
+tags: []
 metadata: {}
 ---
 

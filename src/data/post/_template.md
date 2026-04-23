@@ -10,8 +10,8 @@ draft: true
 excerpt: '' # 摘抄
 
 category: ''
-#devlog(每周进度),java
-#algorithm,operating system,Computer networks,Computer Organization and Architecture
+
+#todo: 暂时没加tags
 
 author: 'QYep'
 

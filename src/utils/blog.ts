@@ -40,6 +40,8 @@ const generatePermalink = async ({
     .join('/');
 };
 
+const normalizeTaxonomySlug = (value = '') => cleanSlug(value.replace(/[\\/]+/g, ' '));
+
 const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
   const { id, data } = post;
   const { Content, remarkPluginFrontmatter } = await render(post);
@@ -63,15 +65,19 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
   const category = rawCategory
     ? {
-        slug: cleanSlug(rawCategory),
+        slug: normalizeTaxonomySlug(rawCategory),
         title: rawCategory,
       }
     : undefined;
 
-  const tags = rawTags.map((tag: string) => ({
-    slug: cleanSlug(tag),
-    title: tag,
-  }));
+  const tags = rawTags
+    .map((tag: string) => tag.trim())
+    .filter((tag: string) => !!tag)
+    .map((tag: string) => ({
+      slug: normalizeTaxonomySlug(tag),
+      title: tag,
+    }))
+    .filter((tag) => !!tag.slug);
 
   return {
     id: id,
@@ -226,7 +232,9 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
   posts.map((post) => {
     if (Array.isArray(post.tags)) {
       post.tags.map((tag) => {
-        tags[tag?.slug] = tag;
+        if (tag?.slug) {
+          tags[tag.slug] = tag;
+        }
       });
     }
   });
