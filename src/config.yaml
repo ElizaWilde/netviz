@@ -17,10 +17,16 @@ i18n:
 
 apps:
   blog:
+    isEnabled: true
+    postsPerPage: 6
     post:
       permalink: '/blog/%slug%'
     list:
       pathname: 'blog'
+    category:
+      pathname: 'category'
+    tag:
+      pathname: 'tag'
 tag:
   robots:
     index: false

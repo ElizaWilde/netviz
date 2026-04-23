@@ -12,7 +12,7 @@ export const headerData = {
     {
       text: 'Pages',
       links: [
-        { text: 'Category Page', href: getPermalink('tutorials', 'category') },
+        { text: 'Category Page', href: getPermalink('/category') },
         { text: 'Tag Page', href: getPermalink('astro', 'tag') },
       ],
     },
@@ -27,8 +27,8 @@ export const footerData = {
     {
       ariaLabel: 'GitHub',
       icon: 'tabler:brand-github',
-      href: 'https://github.com/Haileon',
-      label: 'https://github.com/Haileon',
+      href: 'https://github.com/ElizaWilde/',
+      label: 'https://github.com/ElizaWilde/',
     },
     {
       ariaLabel: 'Email',

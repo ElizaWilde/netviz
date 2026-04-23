@@ -3,8 +3,8 @@ title: 'TS'
 publishDate: 2026-01-22
 draft: false
 excerpt: '...'
-category: 'Web'
-tags: ['TS']
+category: ''
+tags: []
 metadata: {}
 ---
 
