@@ -223,10 +223,10 @@ private CouponService couponService;
 
 **Difference**
 
-| Annotation | Match rule |
-| --- | --- |
-| `@Autowired` | by type |
-| `@Resource` | by name first |
+| Annotation   | Match rule    |
+| ------------ | ------------- |
+| `@Autowired` | by type       |
+| `@Resource`  | by name first |
 
 **Real bug**
 
@@ -525,15 +525,13 @@ DB update
 
 Think like this:
 
-| Layer | Responsibility |
-| --- | --- |
-| Controller | receive request |
-| Service | business logic |
-| Transaction | ensure consistency |
-| Mapper | DB operation |
-| Validation | protect input |
-| Async/MQ | background or external trigger |
-
-
+| Layer       | Responsibility                 |
+| ----------- | ------------------------------ |
+| Controller  | receive request                |
+| Service     | business logic                 |
+| Transaction | ensure consistency             |
+| Mapper      | DB operation                   |
+| Validation  | protect input                  |
+| Async/MQ    | background or external trigger |
 
 ---

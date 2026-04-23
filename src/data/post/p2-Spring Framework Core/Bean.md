@@ -16,7 +16,7 @@ author: 'QYep'
 metadata: {}
 ---
 
--  **Bean 本质就是“被 Spring 容器(IOC container)管理的对象”。** Bean = 普通 Java 对象 + 交给 Spring 管理生命周期和依赖关系
+- **Bean 本质就是“被 Spring 容器(IOC container)管理的对象”。** Bean = 普通 Java 对象 + 交给 Spring 管理生命周期和依赖关系
 - Spring creates it, manages it, injects it where needed
 
 ```jsx
@@ -32,14 +32,12 @@ public class OrderService {
 
 - The container is like a **factory + warehouse of objects**.
 - Spring scans your code, Finds classes with annotations, Creates objects, Stores them in a map (Bean container)
-    
-    ```jsx
-    Example internal structure:
-    BeanContainer:
-    "couponService" -> CouponService instance
-    "orderService"  -> OrderService instance
-    ```
-    
+  ```jsx
+  Example internal structure:
+  BeanContainer:
+  "couponService" -> CouponService instance
+  "orderService"  -> OrderService instance
+  ```
 
 ### How a Bean is created
 
@@ -115,7 +113,7 @@ full lifecycle:
 5. Ready for use
 6. Destroy (@PreDestroy)
 
-4. AOP support (very important)
+7. AOP support (very important)
 
 Because Spring controls Beans, it can add:
 
@@ -128,43 +126,44 @@ Without Beans → these don’t work
 ### Bean Scope
 
 1. Default is **singleton**
-    
-    ```
-    @Service
-    ```
-    
-    - only ONE instance in the container
-    - shared everywhere
+
+   ```
+   @Service
+   ```
+
+   - only ONE instance in the container
+   - shared everywhere
+
 2. Prototype
-    
-    ```
-    	@Scope("prototype")
-    ```
-    
-    - new object every time you request
+
+   ```
+   	@Scope("prototype")
+   ```
+
+   - new object every time you request
+
 3. Other scopes (web)
-    - request
-    - session
+   - request
+   - session
 
 ### Bean Injection methods
 
 1. Field字段 injection
-    
-    ```jsx
-    @Autowired
-    private CouponService service;
-    ```
-    
-2. Constructor injection (recommended in real projects)—easier testing, immutable
-    
-    ```jsx
-    private final CouponService service;
-    public OrderService(CouponService service) {
-    this.service = service;
-    }
-    ```
-    
-3. Setter injection (rare)
 
+   ```jsx
+   @Autowired
+   private CouponService service;
+   ```
+
+2. Constructor injection (recommended in real projects)—easier testing, immutable
+
+   ```jsx
+   private final CouponService service;
+   public OrderService(CouponService service) {
+   this.service = service;
+   }
+   ```
+
+3. Setter injection (rare)
 
 ---
