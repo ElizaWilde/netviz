@@ -24,7 +24,9 @@ metadata: {}
   - **Consistency** → data stays correct
   - **Isolation** → concurrent transactions don’t break each other
   - **Durability** → once committed, data is permanent
+
 #### Why Transaction Alone Is NOT Enough to solve high concurrency ?
+
 - Because under very high concurrency:
   - DB locks become bottlenecks
   - too many transactions slow DB
@@ -36,7 +38,7 @@ metadata: {}
   2. query stock
   3. update stock
   4. insert records
-  5. commit  
+  5. commit
 - Database may collapse.
 
 ### What is `@Transactional`?
@@ -75,6 +77,5 @@ metadata: {}
   ```
 
 - Default rollback only for RuntimeException
-
 
 ---
